@@ -4,6 +4,7 @@ import json
 import time
 import requestx
 import traceback
+import base64
 from datetime import datetime
 
 class PMCardio:
@@ -125,6 +126,11 @@ class PMCardio:
 
             time.sleep(10)
 
+            self.reqValid = self.Requests.get(self.ANALYZE_URL).json()
+
+            if self.reqValid['success'] == False:
+                return {"status" : 500, "diagnosis" : self.reqValid['failure']['failure_key'], "ddx": self.reqValid['failure']['title'], "Wave" : "ECG Error", "keterangan" : self.reqValid['failure']['message'], "report_url": "" }
+
             self.dataPasien = {
                     "patient_number": None,
                     "age": int(umur),
@@ -160,13 +166,16 @@ class PMCardio:
             heart_rate = self.req2['view']['data']
             #
             if heart_rate is None:
-                heart_rate = "Tidak Terdeteksi"
+                heart_rate = self.req2.get("bpm", "Tidak Terdeteksi")
             else:
                 heart_rate =  heart_rate['heart_rate']
 
             ket = ""
 
-            self.req3 = self.Requests.get(self.report_url).json()
+            if self.report_url is not "None":
+                self.req3 = self.Requests.get(self.report_url).json()
+            else:
+                self.req3 = {}
             if self.req3.get('parameters', None) is not None:
                 p_wave = float(self.req3['parameters']['summary']['p_wave']['mean']) / 1000
                 qrs_comp = float(self.req3['parameters']['summary']['qrs_complex']['mean']) / 1000
@@ -191,12 +200,13 @@ class PMCardio:
                 pp_interval = "Tidak Ada"
                 axis = "Tidak Ada"
 
-            waves = f"HR: {heart_rate} bpm<br>Axis: {axis}<br>P Wave: {p_wave} sekon<br>QRS Complex: {qrs_comp} sekon<br>ST Interval: {st_interval} sekon<br>PR Interval: {pr_interval} sekon<br>QT Interval: {qt_interval} sekon<br>RR Interval: {rr_interval} sekon<br>PP Interval: {pp_interval} sekon<br>"
+            waves = f"Ritme: {ritme}<br>HR: {heart_rate} bpm<br>Axis: {axis}<br>P Wave: {p_wave} sekon<br>QRS Complex: {qrs_comp} sekon<br>ST Interval: {st_interval} sekon<br>PR Interval: {pr_interval} sekon<br>QT Interval: {qt_interval} sekon<br>RR Interval: {rr_interval} sekon<br>PP Interval: {pp_interval} sekon<br>"
 
-            ket += f"pasien memiliki heart rate {heart_rate} per menit kompleks QRS memiliki waktu {qrs_comp} second, dengan Interval gelombang ST {st_interval} second, Interval gelombang PR {pr_interval} second, Interval gelombang QT adalah {qt_interval} second, Interval gelombang RR adalah {rr_interval} second, Interval Gelombang PP adalah {pp_interval} second"
+            ket += f"pasien memiliki heart rate {heart_rate} per menit dengan ritme {ritme}, kompleks QRS memiliki waktu {qrs_comp} second, dengan Interval gelombang ST {st_interval} second, Interval gelombang PR {pr_interval} second, Interval gelombang QT adalah {qt_interval} second, Interval gelombang RR adalah {rr_interval} second, Interval Gelombang PP adalah {pp_interval} second, "
             ket += f"axis yang dimiliki dalam hasil ecg menunjukkan ke arah {axis}"
 
-            data = {"status" : 200, "diagnosis" : diagnosis, "ddx": ddx, "Wave" : waves, "keterangan" : ket, "report_url" : str(self.req2['report_pdf']) }
+            report_pdf = base64.b64encode(str(self.req2['report_pdf']).encode('utf-8')).decode("utf-8")
+            data = {"status" : 200, "diagnosis" : diagnosis, "ddx": ddx, "Wave" : waves, "keterangan" : ket, "report_url" : report_pdf}
 
             """
             {

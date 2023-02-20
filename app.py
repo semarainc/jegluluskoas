@@ -105,6 +105,7 @@ def ThreadE(q):
 
         resp = Cardio.AnalyzeECG(img, isrythm, page, rows, columns, voltage, speed, umur, kelamin)
         URL = resp['report_url']
+        print(URL)
     except Exception as e:
         print(e)
         traceback.print_exc()
@@ -290,17 +291,17 @@ def measure2():
     busyo = 0
     return make_response(jsonify(resp), 200)
 
-@app.route('/download', methods=['GET', 'POST'])
-def download():
-    global URL
+@app.route('/download/<report_id>', methods=['GET', 'POST'])
+def download(report_id):
+    #global URL
     print("DownloadPDF")
     with open("token.txt") as f:
         nana = f.read()
 
     tokener = json.loads(nana)
-
+    url_pdf = base64.b64decode(str(report_id).encode("utf-8")).decode('utf-8')
     Cardio = pmcardio.PMCardio(token=tokener['AuthenticationResult']['AccessToken'], refresh_token=tokener['REFRESH_TOKEN'])
-    Cardio.DownloadPDF(URL)
+    Cardio.DownloadPDF(url_pdf)
     print("PDF DOWNLOADED")
     uploads = os.path.join(current_app.root_path, "ecg.pdf")
     return send_file(uploads, as_attachment=True, download_name='ECG Report.pdf')
