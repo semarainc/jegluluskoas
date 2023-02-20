@@ -1,0 +1,12 @@
+[Unit]
+Description=APEKS uWSGI Service
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/altair/Documents/jegluluskoas
+ExecStart=/usr/local/bin/uwsgi --ini /home/altair/Documents/jegluluskoas/uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

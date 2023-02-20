@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ECG Analysis - JEGLULUSKOAS</title>
+  
+    <meta charset="utf-8">
+    <title>ECG Analysis - JEGLULUSKOAS</title>
+    <link rel="stylesheet" href="static/style_cardio.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/><link rel="stylesheet" href="static/style_cardio.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container disable">
+        <h2>ECG Analyzer</h2>
+        <div class="wrapper">
+            <div class="editor-panel">
+                <div class="filter">
+                    <label class="title">Filters</label>
+                    <div class="options">
+                        <button id="brightness" class="active">Brightness</button>
+                        <button id="saturation">Saturation</button>
+                        <button id="inversion">Inversion</button>
+                        <button id="grayscale">Grayscale</button>
+                    </div>
+                    <div class="slider">
+                        <div class="filter-info">
+                            <p class="name">Brighteness</p>
+                            <p class="value">100%</p>
+                        </div>
+                        <input type="range" value="100" min="0" max="200">
+                    </div>
+                </div>
+                <div class="rotate">
+                    <label class="title">Rotate & Flip</label>
+                    <div class="options">
+                        <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
+                        <button id="horizontal"><i class='bx bx-reflect-vertical'></i></button>
+                        <button id="vertical"><i class='bx bx-reflect-horizontal' ></i></button>
+                    </div>
+                </div>
+                <div class="rotate">
+                    <label class="title">ECG Config</label>
+                    <label >Jenis Kelamin</label>
+                    <select style="width: 100%; !important" class="form-select form-select-lg mb-3" id="sel1">
+                            <option>male</option>
+                            <option>female</option>
+                    </select>
+                    <label >Speed (mm/s)</label>
+                    <select style="width: 100%; !important" class="form-select form-select-lg mb-3" id="sel2">
+                            <option>25</option>
+                            <option>5</option>
+                            <option>12.5</option>
+                            <option>50</option>
+                    </select>
+                    <label >Voltage (mm/mV)</label>
+                    <select style="width: 100%; !important" class="form-select form-select-lg mb-3" id="sel3">
+                            <option>10</option>
+                            <option>2.5</option>
+                            <option>5</option>
+                            <option>20</option>
+                    </select>
+                    <label >Tipe Print EKG</label>
+                    <select style="width: 100%; !important" class="form-select form-select-lg mb-3" id="sel4">
+                            <option>1 page, 6x2 leads</option>
+                            <option>1 page, 6x2 rhythm lead</option>
+                            <option>1 page, 3x4 lead</option>
+                            <option>1 page, 3x4 rhythm lead</option>
+                            <option>1 page, 3x4, 2 rhythm lead</option>
+                            <option>1 page, 3x4, 3 rhythm lead</option>
+                            <option>1 page, 12x1, leads</option>
+                            <option>1 page, 3x4, 2 rhythm lead</option>
+                    </select>
+                    <label >Umur</label>
+                    <input style="width: 100%; !important" type="text" id="umur" name="umur" value="20">
+                </div>
+            </div>
+            <div class="preview-img">
+                <img src="https://lh3.google.com/u/0/d/1FDsVIGZyI4z1KxD9J0l_JZ0h2pP9kdAi=w1920-h892-iv1" alt="preview-img">
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="editor-panel">
+                <label>Keterangan [AskGlass] (Click Text to Copy)</label>
+                <p onclick="copyElementText(this.id)" style="whitespace:pre;text-align: justify;" id="keterangan"></p>
+            </div>
+            <div class="editor-panel">
+                <label>Wave/Gelombang</label>
+                <p style="whitespace:pre;text-align: justify;" id="waves"></p>
+            </div>
+            <div class="editor-panel">
+                <label>Diagnosis</label>
+                <p style="whitespace:pre;text-align: justify;" id="diagnosis"></p>
+            </div>
+            <div class="editor-panel">
+                <label>Diagnosis Banding</label>
+                 <p style="whitespace:pre;text-align: justify;" id="ddx"></p>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="reset-filter">Reset Filters</button>
+            <div class="row">
+                <input type="file" class="file-input" accept="image/*" hidden>
+                <a href="download"><button id="download" style="background: #62DD3F; !important" class="saves-img">Get Report</button></a>
+                <button class="choose-img">GetImage</button>
+                <button id="analisa" class="save-img">Analyze ECG</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="static/script_cardio.js"></script>
+<!-- partial -->
+  <script  src="static/script_cardio.js"></script>
+
+</body>
+</html>

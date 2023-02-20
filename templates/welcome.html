@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - JEGLULUSKOAS</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'><link rel="stylesheet" href="static/style_welcome.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="cont_principal">
+<div class="cont_menu">
+  <div class="cont_titulo_menu" onclick="menu()">
+<div class="cont_titulo">
+    <h4>Lunaris | Menu </h4>
+    </div>
+    <div class="cont_icon_menu">
+   <img src="http://danysantos.hol.es/img/planet.png" alt="" />
+<div class="cont_circle_1"></div>
+<div class="cont_circle_2"></div>
+<div class="cont_circle_3"></div>
+<div class="cont_circle_4"></div>
+    </div>
+  </div>
+<div class="cont_icon_trg disable">
+<svg width="46px" height="38px" viewBox="0 0 46 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  >
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0813575634 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <polygon id="Triangle-1" fill="#FFFFFF" filter="url(#filter-1)" sketch:type="MSShapeGroup" points="23 7 39 24 7 24 "></polygon>
+    </g>
+</svg></div>
+<div class="cont_drobpdown_menu disable" >
+
+  <ul>
+  <li><a href="askglass">>>AskGlass<<</a></li>
+ <li><hr /></li>
+  <li><a href="pmcardio">**ECG Analysis**</a></li>
+</ul>
+  
+  </div> 
+  </div> 
+</div>
+<!-- partial -->
+  <script  src="static/script_welcome.js"></script>
+
+</body>
+</html>

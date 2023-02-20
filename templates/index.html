@@ -1,0 +1,560 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashboard | JEGLULUSKOAS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+
+    <link rel="stylesheet" href="static/css/mainLoad.css">
+    <link rel="stylesheet" href="static/css/normalizeLoad.css">
+
+    <link rel="stylesheet" href="static/css/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/owl.theme.css">
+    <link rel="stylesheet" href="static/css/owl.transitions.css">
+    <!-- meanmenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/meanmenu/meanmenu.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- jvectormap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- notika icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/notika-custom-icon.css">
+    <!-- wave CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/wave/waves.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/main.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <style>
+/* The container */
+.containerZ {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.containerZ input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.containerZ:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerZ input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containerZ input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerZ .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+</head>
+
+<body class="demo">
+    <div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+    <div class="modal animated flash" id="myModalfive" role="dialog">
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2>Measure Complete</h2>
+                    <p>Measuring Complete. Please Check in Your Dashboard</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Start Header Top Area -->
+    <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <h1 style="color: white;">ASKGlass</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top Area -->
+
+    <!-- Start Status area -->
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-example-wrap mg-t-30">
+                        <div class="cmp-tb-hd cmp-int-hd">
+                            <h2>Information</h2>
+                        </div>
+                        <div class="form-group">
+                        <label for="sel1">Select Gender:</label>
+                        <select class="form-control" id="sel1">
+                            <option>Laki</option>
+                            <option>Perempuan</option>
+                        </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="form-example-int form-example-st">
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            <label for="sel1">Nama:</label>
+                                            <input id="name" type="text" class="form-control input-sm" placeholder="Your Name">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                            <label for="sel1">Umur (x bulan/tahun):</label>
+                                            <input id="umur" type="text" class="form-control input-sm" placeholder="Enter Age (Year/Month)">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                            <label for="sel1">TD (xx/xx mmHg):</label>
+                                            <input id="TD" type="text" class="form-control input-sm" placeholder="Tekanan Darah">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                            <label for="sel1">Tinggi Badan/Pjg Badan (cm):</label>
+                                            <input id="TB" type="text" class="form-control input-sm" placeholder="Enter Height (Cm)">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                            <label for="sel1">BB (Kg):</label>
+                                            <input id="BB" type="text" class="form-control input-sm" placeholder="Berat Badan">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                            <label for="sel1">Suhu (Celcius):</label>
+                                            <input id="Suhu" type="text" class="form-control input-sm" placeholder="Suhu">
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">keluhan/Lokasi:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="keluhan" class="form-control input-sm" name="keluhan"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Onset/Berapa lama/sejak kapan:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="onset" class="form-control input-sm" name="onset"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">kualitas(seringnya terjadi):</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="kualitas" class="form-control input-sm" name="kualitas"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">kuantitas (rasa seperti apa):</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="kuantitas" class="form-control input-sm" name="kuantitas"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Memperberat:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="memperberat" class="form-control input-sm" name="keluhan"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Memperingan:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="memperingan" class="form-control input-sm" name="keluhan"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Riwayat Terdahulu:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="sakitdulu" class="form-control input-sm" name="keluhan"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Riwayat Keluarga:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="sakitkeluarga" class="form-control input-sm" name="keluhan"></textarea>
+                                        </div><br><br>
+                                        <div class="nk-int-st">
+                                          <label for="sel1">Keterangan:</label>
+                                            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" id="keterangan" class="form-control input-sm" name="keterangan"></textarea>
+                                        </div><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br><br>
+                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+                                <div class="form-example-int">
+                                <br><br>
+                                <center><button id="ukur" onclick="ReqData()" class="btn btn-success notika-btn-success btn-block">Start Diagnosing</button></center><br>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="clear" onclick="ClearData()" class="btn btn-danger notika-btn-danger btn-block">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2 id="diagnosis">Diagnosis_ID</h2>
+                            <a style="whitespace:pre;text-align: justify;" id="txtdiagnosis"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2 id="ddx">DDX_ID</h2>
+                            <a style="whitespace:pre; text-align: justify;" id="txtddx"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2 id="diagnosis">Diagnosis_EN</h2>
+                            <a style="whitespace:pre; text-align: justify;" id="txtdiagnosis_en"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2 id="ddx">DDX_EN</h2>
+                            <a style="whitespace:pre; text-align: justify;" id="txtddx_en"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Status area-->
+    <br>
+
+    <!-- Start Footer area-->
+    <div class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright © JEGLULUSKOAS 2023
+. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer area-->
+    <!-- jquery
+		============================================ -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="static/js/jquery-price-slider.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="static/js/owl.carousel.min.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="static/js/jquery.scrollUp.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="static/js/meanmenu/jquery.meanmenu.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="static/js/counterup/jquery.counterup.min.js"></script>
+    <script src="static/js/counterup/waypoints.min.js"></script>
+    <script src="static/js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- jvectormap JS
+		============================================ -->
+    <script src="static/js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="static/js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="static/js/jvectormap/jvectormap-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="static/js/sparkline/sparkline-active.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="static/js/flot/jquery.flot.js"></script>
+    <script src="static/js/flot/jquery.flot.resize.js"></script>
+    <script src="static/js/flot/curvedLines.js"></script>
+    <script src="static/js/flot/flot-active.js"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="static/js/knob/jquery.knob.js"></script>
+    <script src="static/js/knob/jquery.appear.js"></script>
+    <script src="static/js/knob/knob-active.js"></script>
+    <!--  wave JS
+		============================================ -->
+    <script src="static/js/wave/waves.min.js"></script>
+    <script src="static/js/wave/wave-active.js"></script>
+    <!--  todo JS
+		============================================ -->
+    <script src="static/js/todo/jquery.todo.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="static/js/plugins.js"></script>
+	<!--  Chat JS
+		============================================ -->
+    <script src="static/js/chat/moment.min.js"></script>
+    <script src="static/js/chat/jquery.chat.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="static/js/main.js"></script>
+	<!-- tawk chat JS
+		============================================
+    <script src="static/js/tawk-chat.js"></script> -->
+
+    <script>
+
+    document.onreadystatechange = () => {
+      if (document.readyState === 'complete') {
+        console.log('DOM is ready.');
+        document.getElementById("keterangan").style.height = (26+document.getElementById("keterangan").scrollHeight)+"px";
+
+        setTimeout(function(){
+            $('body').addClass('loaded');
+            //$('h1').css('color','#222222');
+        }, 3000);
+      }
+    };
+
+    function ClearData(){
+      document.getElementById("ukur").disabled = false;
+      document.getElementById("ukur").innerHTML = "Start Diagnose";
+      document.getElementById("umur").disabled = false;
+      document.getElementById("name").disabled = false;
+      document.getElementById("clear").disabled = false;
+
+      document.getElementById("umur").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("TB").value= "";
+      document.getElementById("BB").value= "";
+      document.getElementById("Suhu").value= "";
+      document.getElementById("keterangan").value= "";
+      document.getElementById("TD").value= "";
+
+      document.getElementById("keluhan").value= "";
+      document.getElementById("onset").value= "";
+      document.getElementById("kualitas").value= "";
+      document.getElementById("kuantitas").value= "";
+      document.getElementById("memperberat").value= "";
+      document.getElementById("memperingan").value= "";
+      document.getElementById("sakitdulu").value= "";
+      document.getElementById("sakitkeluarga").value= "";
+
+      document.getElementById("txtdiagnosis").innerHTML= "";
+      document.getElementById("txtddx").innerHTML= "";
+      document.getElementById("txtdiagnosis_en").innerHTML= "";
+      document.getElementById("txtddx_en").innerHTML= "";
+
+    }
+    //run Request
+    var busyo = 0;
+    function ReqData(){
+        if (busyo == 1){
+            document.getElementById("ukur").disabled = false;
+            document.getElementById("ukur").innerHTML = "Start Diagnose";
+            document.getElementById("umur").disabled = false;
+            document.getElementById("name").disabled = false;
+            document.getElementById("clear").disabled = false;
+            busyo = 0;
+            var xhttp2 = new XMLHttpRequest();
+            xhttp2.open("GET", "/clear", true);
+            xhttp2.send(null);
+            xhttp.abort();
+        }
+
+        var xhttp = new XMLHttpRequest();
+        var xhttp2 = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText == "ok"){
+                    document.getElementById("ukur").disabled = false;
+                    document.getElementById("ukur").innerHTML = "Start Diagnosing";
+                    document.getElementById("umur").disabled = false;
+                    document.getElementById("name").disabled = false;
+                    document.getElementById("clear").disabled = false;
+                    busyo = 0;
+                }
+                else{
+                    busyo = 0;
+                    myJSONS = JSON.parse(this.responseText);
+                    console.log(myJSONS);
+
+                    if(myJSONS.status != 200){alert("Corrupt/Partial Data (Retry?)");}
+                    //ketik hasil disini
+                    document.getElementById("txtdiagnosis").innerHTML = myJSONS.clinical_id;
+                    document.getElementById("txtddx").innerHTML = myJSONS.ddx_id;
+
+                    document.getElementById("txtdiagnosis_en").innerHTML = myJSONS.clinical;
+                    document.getElementById("txtddx_en").innerHTML = myJSONS.ddx;
+
+                    //z.getElementsByClassName('spanner_alpha')[0].innerHTML = myJSONS.data;
+                    //var endTime = performance.now();
+                    //alert(endTime-startTime);
+                    xhttp2.open("GET", "/clear", true);
+                    xhttp2.send(null);
+
+                    document.getElementById("ukur").innerHTML = "Start Diagnosing";
+                    document.getElementById("umur").disabled = false;
+                    document.getElementById("name").disabled = false;
+                }
+            }
+        };
+        xhttp.open("POST", "/measure", true);
+        busyo = 1;
+
+        document.getElementById("ukur").innerHTML = "Diagnosing... (Tap to Stop)";
+
+        disabledU = document.getElementById("umur").disabled;
+        if (disabledU){
+            document.getElementById("umur").disabled = true;
+            document.getElementById("name").disabled = true;
+            //document.getElementById("clear").disabled = true;
+            xhttp.send(JSON.stringify({"namaa": name, "usia": umur, "kelamin": jk, "td" : td, "bb": bb, "suhu": suhu, "TB": tb,
+            "keluhan" : keluhan,
+            "onset" : onset,
+            "kualitas" : kualitas,
+            "kuantitas": kuantitas,
+            "memperberat" : memperberat,
+            "memperingan" : memperingan,
+            "sakitdulu" : sakitdulu,
+            "sakitkeluarga" : sakitkeluarga,
+            "keterangan": kete}));
+            //var jk = "no";
+            //var umur = document.getElementById("umur").value;
+        }
+        else{
+            document.getElementById("umur").disabled = true;
+            document.getElementById("name").disabled = true;
+            //document.getElementById("clear").disabled = true;
+            var jk = document.getElementById("sel1").value;
+            var umur = document.getElementById("umur").value;
+            var name = document.getElementById("name").value;
+            var td = document.getElementById("TD").value;
+            var tb = document.getElementById("TB").value;
+            var bb = document.getElementById("BB").value;
+            var suhu = document.getElementById("Suhu").value;
+            var kete = document.getElementById("keterangan").value;
+            var keluhan = document.getElementById("keluhan").value;
+            var onset = document.getElementById("onset").value;
+            var kualitas = document.getElementById("kualitas").value;
+            var kuantitas= document.getElementById("kuantitas").value;
+            var memperberat = document.getElementById("memperberat").value;
+            var memperingan = document.getElementById("memperingan").value;
+            var sakitdulu = document.getElementById("sakitdulu").value;
+            var sakitkeluarga = document.getElementById("sakitkeluarga").value;
+            xhttp.send(JSON.stringify({"namaa": name, "usia": umur, "kelamin": jk, "td" : td, "bb": bb, "suhu": suhu, "TB": tb,
+            "keluhan" : keluhan,
+            "onset" : onset,
+            "kualitas" : kualitas,
+            "kuantitas": kuantitas,
+            "memperberat" : memperberat,
+            "memperingan" : memperingan,
+            "sakitdulu" : sakitdulu,
+            "sakitkeluarga" : sakitkeluarga,
+            "keterangan": kete}));
+        }
+        //xhttp.send(JSON.stringify({"usia": umur, "kelamin": jk}));
+    }
+
+    function textAreaAdjust(element) {
+      element.style.height = "2px";
+      element.style.height = (26+element.scrollHeight)+"px";
+    }
+    </script>
+</body>
+
+</html>
