@@ -124,12 +124,31 @@ class PMCardio:
             self.req = self.Requests.post(self.ANALYZE_URL, data=self.data, files=self.files)
             print(self.req.text)
 
-            time.sleep(10)
+            #time.sleep(10)
+            selesai = 0
+            while selesai !=1:
+                self.reqValid = self.Requests.get(self.ANALYZE_URL).json()
+                print(self.reqValid)
 
-            self.reqValid = self.Requests.get(self.ANALYZE_URL).json()
+                if self.reqValid['success'] == False and self.reqValid['failure'] is not None:
+                    return {"status" : 500, "diagnosis" : "Data Not Ready on Server", "ddx": "Data Corrupted", "Wave" : "ECG Error", "keterangan" : "Data is Not Ready", "report_url": "" }
+                elif self.reqValid['success'] == True:
+                    selesai = 1
 
-            if self.reqValid['success'] == False:
-                return {"status" : 500, "diagnosis" : self.reqValid['failure']['failure_key'], "ddx": self.reqValid['failure']['title'], "Wave" : "ECG Error", "keterangan" : self.reqValid['failure']['message'], "report_url": "" }
+                time.sleep(1)
+
+            selesai = 0
+            while selesai !=1:
+                self.reqValid = self.Requests.get(self.PUT_ANALYZE_URL).json()
+                print(self.reqValid)
+
+                if self.reqValid['is_ready'] == False and self.reqValid['is_failed'] == True:
+                    return {"status" : 500, "diagnosis" : "Fail To Before Add Put Analysis Request", "ddx": "Fail To Before Add Put Analysis Request", "Wave" : "ECG Error", "keterangan" : "Fail To Before Add Put Analysis Request", "report_url": "" }
+                elif self.reqValid['is_ready'] == True:
+                    print("Data is Ready")
+                    selesai = 1
+
+                time.sleep(1)
 
             self.dataPasien = {
                     "patient_number": None,
