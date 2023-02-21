@@ -123,46 +123,46 @@ def ThreadD(q):
 
     str_rm = "pasien "
 
-    if data.get("kelamin", "") is not "":
+    if data.get("kelamin", "") != "":
         str_rm += f"berjenis kelamin {data.get('kelamin')} "
 
-    if data.get("usia", "") is not "":
+    if data.get("usia", "") != "":
         str_rm += f"berusia {data.get('usia')} "
 
-    if data.get("td", "") is not "":
+    if data.get("td", "") != "":
         str_rm += f"memiliki tekanan darah {data.get('td')} mmHg "
 
-    if data.get("bb", "") is not "":
+    if data.get("bb", "") != "":
         str_rm += f"pasien memiliki berat badan {data.get('bb')} Kg "
 
-    if data.get("suhu", "") is not "":
+    if data.get("suhu", "") != "":
         str_rm += f"suhu tubuh {data.get('suhu')} derajat celcius "
 
-    if data.get("keluhan", "") is not "":
+    if data.get("keluhan", "") != "":
         str_rm += f"pasien mengeluhkan {data.get('keluhan')} "
 
-    if data.get("onset", "") is not "":
+    if data.get("onset", "") != "":
         str_rm += f"keluhan ini sudah terjadi sejak {data.get('onset')}. "
 
     if data.get("kualitas") is not None:
         str_rm += f"keluhan ini {data.get('kualitas')}, "
 
-    if data.get("kuantitas", "") is not "":
+    if data.get("kuantitas", "") != "":
         str_rm += f"kuantitas {data.get('kuantitas')}, "
 
-    if data.get("memperberat", "") is not "":
+    if data.get("memperberat", "") != "":
         str_rm += f"keluhan ini memberat bila {data.get('mempeberat')}, "
 
-    if data.get("memperingan", "") is not "":
+    if data.get("memperingan", "") != "":
         str_rm += f"keluha ini mereda bila {data.get('memperingan')}, "
 
-    if data.get("sakitdulu", "") is not "":
+    if data.get("sakitdulu", "") != "":
         str_rm += f"pasien memiliki riwayat penyakit dahulu berupa {data.get('sakitdulu')}, "
 
-    if data.get("sakitkeluarga", "") is not "":
+    if data.get("sakitkeluarga", "") != "":
         str_rm += f"keluarga pasien memiliki riwayat penyakit, {data.get('sakitkeluarga')}. "
 
-    if data.get("keterangan", "") is not "":
+    if data.get("keterangan", "") != "":
         str_rm += f"{data.get('keterangan')} "
 
     #str_rm = f"""
