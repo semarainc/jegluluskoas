@@ -200,7 +200,7 @@
                                             <input id="name" type="text" class="form-control input-sm" placeholder="Your Name">
                                         </div><br><br>
                                         <div class="nk-int-st">
-                                            <label for="sel1">Umur (x bulan/tahun):</label>
+                                            <label for="sel1">Umur (x bulan/tahun/hari/jam/dll):</label>
                                             <input id="umur" type="text" class="form-control input-sm" placeholder="Enter Age (Year/Month)">
                                         </div><br><br>
                                         <div class="nk-int-st">
@@ -411,7 +411,7 @@
 
     function ClearData(){
       document.getElementById("ukur").disabled = false;
-      document.getElementById("ukur").innerHTML = "Start Diagnose";
+      document.getElementById("ukur").innerHTML = "Start Diagnosing";
       document.getElementById("umur").disabled = false;
       document.getElementById("name").disabled = false;
       document.getElementById("clear").disabled = false;
@@ -444,7 +444,7 @@
     function ReqData(){
         if (busyo == 1){
             document.getElementById("ukur").disabled = false;
-            document.getElementById("ukur").innerHTML = "Start Diagnose";
+            document.getElementById("ukur").innerHTML = "Start Diagnosing";
             document.getElementById("umur").disabled = false;
             document.getElementById("name").disabled = false;
             document.getElementById("clear").disabled = false;
@@ -473,7 +473,6 @@
                     myJSONS = JSON.parse(this.responseText);
                     console.log(myJSONS);
 
-                    if(myJSONS.status != 200){alert("Corrupt/Partial Data (Retry?)");}
                     //ketik hasil disini
                     document.getElementById("txtdiagnosis").innerHTML = myJSONS.clinical_id;
                     document.getElementById("txtddx").innerHTML = myJSONS.ddx_id;
@@ -490,6 +489,7 @@
                     document.getElementById("ukur").innerHTML = "Start Diagnosing";
                     document.getElementById("umur").disabled = false;
                     document.getElementById("name").disabled = false;
+                    if(myJSONS.status != 200){alert("Corrupt/Partial Data (Retry?)");}
                 }
             }
         };
