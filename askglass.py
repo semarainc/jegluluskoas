@@ -25,9 +25,10 @@ class AskGlass:
             tipe = "ddx"
             data = {
                 "prompt" : en_anam,
-                "suggest_type" : tipe,
+                "suggest_type" : "",
                 }
 
+            data['suggest_type'] = tipe
             print("Waiting for Result....")
             print(self.headers)
             ddxr = self.requests.post(self.TARGET_URL, headers=self.headers, data=data)
@@ -43,6 +44,7 @@ class AskGlass:
             ret_val["ddx_id"] = ddx_id.replace("\n", "<br>")
 
             tipe = "clinical_plan"
+            data['suggest_type'] = tipe
 
             clinical = self.requests.post(self.TARGET_URL, headers=self.headers, data=data).json()["response_text"]
 
